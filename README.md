@@ -3,7 +3,7 @@ Este projeto foi desenvolvido por:
 
 - Camila Pedroza da Cunha (RM 558768)
 - Isabelle Dallabeneta (RM 554592)
-- Nicolli Kassa (RM 559104)
+- Nicoli Kassa (RM 559104)
 - Pedro Camacho (RM 556831)
 
 ## Introdução
