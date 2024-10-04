@@ -26,6 +26,9 @@ O DHT22 é um sensor digital que mede a temperatura e a umidade do ambiente. Ele
 ### Sensor de Luminosidade (LDR)
 O sensor de luminosidade LDR (Light Dependent Resistor) detecta a intensidade da luz no ambiente. Com isso, será possível acionar alertas quando os níveis de luz forem excessivos, garantindo a proteção dos vinhos.
 
+## Montagem do Hardware
+![image](https://github.com/user-attachments/assets/bb25be8e-a923-49f8-b4b4-58e7368af45e)
+
 ## Feedback dos Proprietários
 Após a apresentação da primeira fase do projeto, os proprietários expressaram satisfação, mas também levantaram questões importantes:
 
@@ -50,4 +53,9 @@ Para atender ao feedback recebido, os seguintes requisitos foram estabelecidos:
 
 ## Conclusão
 A fase dois do projeto visa não apenas atender às necessidades atuais dos proprietários da Vinheria, mas também preparar o sistema para futuras integrações e expansões, garantindo a eficiência na gestão das condições de armazenamento dos vinhos. A adoção de padrões como NGSI e o uso do FIWARE serão fundamentais para o sucesso dessa implementação.
+
+## Links
+### [Código Fonte em C++](https://github.com/dallaisa/cp05_Edge-Computing-Computer-Systems/blob/main/CodigoFonte.c%2B%2B)
+
+
 
