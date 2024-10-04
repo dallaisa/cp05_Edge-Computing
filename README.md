@@ -1,5 +1,5 @@
 # Equipe de Desenvolvimento
-Este projeto foi desenvolvido por
+Este projeto foi desenvolvido por:
 
 - Camila Pedroza da Cunha (RM 558768)
 - Isabelle Dallabeneta (RM 554592)
