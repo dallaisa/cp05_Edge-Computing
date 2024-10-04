@@ -4,28 +4,25 @@
 #include <DHT.h>
 
 // Configurações - variáveis editáveis
-const char* default_SSID = "FIAP-IBM"; // Nome da rede Wi-Fi
-const char* default_PASSWORD = "Challenge@24!"; // Senha da rede Wi-Fi
-const char* default_BROKER_MQTT = "18.208.160.16"; // IP do Broker MQTT
-const int default_BROKER_PORT = 1883; // Porta do Broker MQTT
-const char* default_TOPICO_SUBSCRIBE = "/TEF/device200/cmd"; // Tópico MQTT de escuta
-const char* default_TOPICO_PUBLISH_1 = "/TEF/device200/attrs"; // Tópico MQTT para estado do LED
-const char* default_TOPICO_PUBLISH_2 = "/TEF/device200/attrs/p"; // Tópico MQTT para luminosidade
-const char* default_TOPICO_PUBLISH_TEMP = "/TEF/device200/attrs/temp"; // Tópico MQTT para temperatura
-const char* default_TOPICO_PUBLISH_HUM = "/TEF/device200/attrs/hum"; // Tópico MQTT para umidade
-const char* default_ID_MQTT = "fiware_200"; // ID MQTT
-const int default_D4 = 2; // Pino do LED onboard
-const int LDRPin = 34; // Pino para LDR
+const char* default_SSID = "FIAP-IBM"; 
+const char* default_PASSWORD = "Challenge@24!"; 
+const char* default_BROKER_MQTT = "18.208.160.16"; 
+const int default_BROKER_PORT = 1883; 
+const char* default_TOPICO_SUBSCRIBE = "/TEF/device200/cmd"; 
+const char* default_TOPICO_PUBLISH_1 = "/TEF/device200/attrs"; 
+const char* default_TOPICO_PUBLISH_2 = "/TEF/device200/attrs/p"; 
+const char* default_TOPICO_PUBLISH_TEMP = "/TEF/device200/attrs/temp"; 
+const char* default_TOPICO_PUBLISH_HUM = "/TEF/device200/attrs/hum";
+const char* default_ID_MQTT = "fiware_200"; 
+const int default_D4 = 2; 
+const int LDRPin = 34; 
 #define DHTPIN 4 // Pino para DHT
 #define DHTTYPE DHT11 // DHT11 ou DHT22
-
-// Declaração da variável para o prefixo do tópico
 const char* topicPrefix = "device200";
 
-// Inicializa o sensor DHT
+// Sensor DHT
 DHT dht(DHTPIN, DHTTYPE);
 
-// Variáveis para configurações editáveis
 char* SSID = const_cast<char*>(default_SSID);
 char* PASSWORD = const_cast<char*>(default_PASSWORD);
 char* BROKER_MQTT = const_cast<char*>(default_BROKER_MQTT);
@@ -91,8 +88,6 @@ void reconectWiFi() {
     Serial.print(SSID);
     Serial.println("IP obtido: ");
     Serial.println(WiFi.localIP());
-
-    // Garantir que o LED inicie desligado
     digitalWrite(D4, LOW);
 }
 
@@ -105,11 +100,9 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
     Serial.print("- Mensagem recebida: ");
     Serial.println(msg);
 
-    // Forma o padrão de tópico para comparação
     String onTopic = String(topicPrefix) + "@on|";
     String offTopic = String(topicPrefix) + "@off|";
 
-    // Compara com o tópico recebido
     if (msg.equals(onTopic)) {
         digitalWrite(D4, HIGH);
         EstadoSaida = '1';
@@ -175,7 +168,7 @@ void handleLuminosity() {
     MQTT.publish(TOPICO_PUBLISH_2, mensagem.c_str());
 }
 void handleDHT() {
-    // Leitura de temperatura e umidade do sensor DHT
+    // Leitura do DHT
     float temperatura = dht.readTemperature();
     float umidade = dht.readHumidity();
 
